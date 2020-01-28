@@ -66,7 +66,7 @@
 
                     <div class="modal-body">
                         <div id="join">
-                            <div id="img-div"><img class="img-fluid w-50" src="/openvidu-tutorials/openvidu-insecure-js/web/resources/images/openvidu_grey_bg_transp_cropped.png" alt="Logo" /></div>
+                            <div id="img-div"><img class="img-fluid w-50" src="images/openvidu_grey_bg_transp_cropped.png" alt="Logo" /></div>
                             <div id="join-dialog" class="vertical-center">
                                 <h3>Join a video session</h3>
                                 <form class="form-group" onsubmit="joinSession(); return false">
@@ -124,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="fixed-bottom row" style="z-index: 10;">
+            <div class="fixed-bottom" style="z-index: 10;">
 
                 <div class="row align-items-center px-5">
                     <div class="col text-left">
