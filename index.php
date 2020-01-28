@@ -97,11 +97,22 @@
 
             <div class="fixed-top row align-items-start justify-content-end px-5">
                 <div class="col-md-4 text-left">
-                    <nav class="navbar navbar-dark bg-transparent border-0 justify-content-start">
-                        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </nav>
+			<nav class="navbar navbar-dark bg-transparent border-0 justify-content-start">
+				<button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</nav>
+			<div class="collapse" id="navbarToggleExternalContent" style="z-index: 1000;">
+				<div class="p-4">
+					<h5 class="text-white h4">Collapsed content</h5>
+					<h5 class="text-white h4">Collapsed content</h5>
+					<hr>
+					<h5 class="text-white h4">Collapsed content</h5>
+					<h5 class="text-white h4">Collapsed content</h5>
+					<h5 class="text-white h4">Collapsed content</h5>
+					<h5 class="text-white h4">Collapsed content</h5>
+				</div>
+			</div>
                 </div>
                 <div class="col-md-4 text-center"></div>
 
@@ -113,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="fixed-bottom row">
+            <div class="fixed-bottom row" style="z-index: 10;">
 
                 <div class="row align-items-center px-5">
                     <div class="col text-left">
