@@ -1,4 +1,4 @@
-# openvidu always-on video streaming
+# Openvidu always-on video streaming
 Always-on video feed for Remote offices, combined with a whiteboarding feature
 
 
