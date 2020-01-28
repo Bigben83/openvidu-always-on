@@ -66,11 +66,7 @@ function joinSession() {
 
 				// --- 6) Get your own camera stream with the desired properties ---
 
-<<<<<<< HEAD
-				publisher = OV.initPublisher('client-video-container', {
-=======
 				publisher = OV.initPublisher('video-container', {
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb
 					audioSource: undefined, 	// The source of audio. If undefined default microphone
 					videoSource: undefined, 	// The source of video. If undefined default webcam
 					publishAudio: true,  		// Whether you want to start publishing with your audio unmuted or not
@@ -230,15 +226,8 @@ function muteVideo() {
  *   3) The token must be consumed in Session.connect() method
  */
 
-<<<<<<< HEAD
 var OPENVIDU_SERVER_URL = "https://conference.bisonconstructions.com.au:4443";
 var OPENVIDU_SERVER_SECRET = "EaT5dcFY2";
-=======
-var OPENVIDU_SERVER_URL = "https://" + location.hostname + ":4443";
-var OPENVIDU_SERVER_SECRET = "MY_SECRET";
-//var OPENVIDU_SERVER_URL = "https://your-server-url-here.com:4443";
-//var OPENVIDU_SERVER_SECRET = "123456789456123hjfkrioefjkdnvjkrtiouewkj";
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb
 
 function getToken(mySessionId) {
 	return createSession(mySessionId).then(sessionId => createToken(sessionId));
@@ -284,8 +273,4 @@ function createToken(sessionId) { // See https://openvidu.io/docs/reference-docs
 			error: error => reject(error)
 		});
 	});
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb

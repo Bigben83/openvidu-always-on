@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>openvidu-insecure-js</title>
+    <title>Always-on Video Streaming</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<<<<<<< HEAD
     
     <script src="js/openvidu-browser-2.11.0.js"></script>
     <script src="js/app.js"></script>
@@ -34,12 +33,6 @@
             font-style: normal;
         }
         
-=======
-    <script src="js/openvidu-browser-2.11.0.js"></script>
-    <script src="js/app.js"></script>
-
-    <style>       
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb
         html,
         body {
             height: 100%;
@@ -47,11 +40,7 @@
         }
         
         body {
-<<<<<<< HEAD
             font-family: 'Eurostile', arial;
-=======
-            font-family: arial;
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb
             font-weight: bold;
             font-style: normal;
         }
@@ -79,13 +68,10 @@
         	top: 30px;
         	left: 0;
         }
-<<<<<<< HEAD
     
     	.navbar-toggler {
     		font-size: 3.25rem;
     	}
-=======
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb
     </style>
 </head>
 
@@ -130,7 +116,6 @@
 
             <div class="fixed-top row align-items-start justify-content-end px-5">
                 <div class="col-md-4 text-left">
-<<<<<<< HEAD
                     <nav class="navbar navbar-light bg-transparent border-0 justify-content-start">
                         <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -148,24 +133,6 @@
 							<h5 class="text-white h4">Collapsed content</h5>
 						</div>
 					</div>
-=======
-			<nav class="navbar navbar-dark bg-transparent border-0 justify-content-start">
-				<button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-			</nav>
-			<div class="collapse" id="navbarToggleExternalContent" style="z-index: 1000;">
-				<div class="p-4">
-					<h5 class="text-white h4">Collapsed content</h5>
-					<h5 class="text-white h4">Collapsed content</h5>
-					<hr>
-					<h5 class="text-white h4">Collapsed content</h5>
-					<h5 class="text-white h4">Collapsed content</h5>
-					<h5 class="text-white h4">Collapsed content</h5>
-					<h5 class="text-white h4">Collapsed content</h5>
-				</div>
-			</div>
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb
                 </div>
                 <div class="col-md-4 text-center"></div>
 
@@ -177,7 +144,7 @@
                 </div>
             </div>
 
-            <div class="fixed-bottom" style="z-index: 10;">
+            <div class="fixed-bottom row" style="z-index: 10;">
 
                 <div class="row align-items-center px-5">
                     <div class="col text-left">
@@ -208,7 +175,6 @@
 
                     <div class="col-md-2 text-right">
                         <div id="video-container" class="" alt="Preview"></div>
-<<<<<<< HEAD
                     		<div class="top-centered text-right text-dark p-2">
 								<span class="remote-time">10:30 AM</span>
 							</div>	
@@ -217,16 +183,6 @@
 								<span class="session-name pull-left">Benjamin</span>, - <span class="session-title pull-left">Scottsdale</span>
 								<span class="remote-status pull-right"><i class="fas fa-microphone text-success"></i></span>
 							</div>
-=======
-						<div class="top-centered text-right text-dark p-2">
-							<span class="remote-time">10:30 AM</span>
-						</div>	
-						<video class="img-fluid" alt="video"></video>
-						<div class="bottom-centered bg-secondary text-white p-2">
-							<span class="session-name pull-left">Benjamin</span>, - <span class="session-title pull-left">Scottsdale</span>
-							<span class="remote-status pull-right"><i class="fas fa-microphone text-success"></i></span>
-						</div>
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb
                     </div>
                     <!-- for user preview box -->
 
@@ -259,11 +215,7 @@
     </script>
 
 	<script type="text/javascript">
-<<<<<<< HEAD
         function checkTime(i) {
-=======
-		function checkTime(i) {
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb
 		  if (i < 10) {
 			i = "0" + i;
 		  }
@@ -278,10 +230,6 @@
 		  var ampm = h >= 12 ? 'PM' : 'AM';
 		  h = h % 12;
 		  h = h ? h : 12; // the hour ’0′ should be ’12′
-<<<<<<< HEAD
-=======
-		  m = m < 10 ? '0'+m : m;
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb
 		  // add a zero in front of numbers<10
 		  m = checkTime(m);
 		  s = checkTime(s);
@@ -294,8 +242,4 @@
 	</script>
 </body>
 
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> a4ac4bdbc0bb42bb119a5e038c4a9883dddeb6fb
