@@ -1,11 +1,13 @@
-# openvidu-always-on
-Always-on video feed for Remote offices, with whiteboard feature
+# openvidu always-on video streaming
+Always-on video feed for Remote offices, combined with a whiteboarding feature
 
 
 Always Video is designed specifically for common areas, to close the gap in Remote offices, Designed to remove physical boundaries and feel as though you are looking through to the other locations.
 
 #### Team to Team Areas
-For teams across locations that work closely together (e.g. agile teams) place the always-on-Video screen in specific teams area of the office to have instant communications, dramatically improving communications speed.
+For teams across remote locations that work closely together. Place the always-on-Video screen in specific team areas of the office or in common rooms to have instant communications, dramatically improving communications speed.
+
+Walk up to the screen, select the remote feed you want to interact with, knock on the screen to alert them you would like to talk.
 
 ### Features
 * Responsive to fit any large size screen
@@ -13,7 +15,7 @@ For teams across locations that work closely together (e.g. agile teams) place t
 * Full Screen Video Feed
 
 #### To be implemented
-* Whiteboard Link
+* Whiteboard Link  (this will be semitransparent so you can still see the video feed behind it.)
 * Unmute/Mute remote parties
 * Automatically mute after 5min if no audio or (face detection?)
 * Bell feature to alert remote party you need to speak, e.g. tap or click on image to knock
