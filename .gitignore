@@ -1,10 +1,7 @@
 index.html
-openvidu/*
-fonts/*
-css/*
+openvidu
+fonts
+css
 getaroom.php
 video-window.php
 openvidu/openvidu-tutorials
-
-images/bison-logo.png
-
