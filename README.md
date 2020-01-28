@@ -7,7 +7,7 @@ Always Video is designed specifically for common areas, to close the gap in Remo
 #### Team to Team Areas
 For teams across locations that work closely together (e.g. agile teams) place the always-on-Video screen in specific teams area of the office to have instant communications, dramatically improving communications speed.
 
-#### Features
+### Features
 * Responsive to fit any large size screen
 * Mute / Unmute Button
 * Full Screen Video Feed
