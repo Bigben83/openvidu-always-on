@@ -226,8 +226,10 @@ function muteVideo() {
  *   3) The token must be consumed in Session.connect() method
  */
 
-var OPENVIDU_SERVER_URL = "https://conference.bisonconstructions.com.au:4443";
-var OPENVIDU_SERVER_SECRET = "EaT5dcFY2";
+var OPENVIDU_SERVER_URL = "https://" + location.hostname + ":4443";
+var OPENVIDU_SERVER_SECRET = "MY_SECRET";
+//var OPENVIDU_SERVER_URL = "https://your-server-url-here.com:4443";
+//var OPENVIDU_SERVER_SECRET = "123456789456123hjfkrioefjkdnvjkrtiouewkj";
 
 function getToken(mySessionId) {
 	return createSession(mySessionId).then(sessionId => createToken(sessionId));
