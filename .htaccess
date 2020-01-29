@@ -8,3 +8,8 @@ ErrorDocument 403 /login.php
 order deny,allow
 deny from all
 allow from 150.101.108.163 180.222.170.27
+
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE] 
