@@ -85,7 +85,9 @@
 
                     <div class="modal-body">
                         <div id="join">
-                            <div id="img-div"><img class="img-fluid w-50" src="images/openvidu_grey_bg_transp_cropped.png" alt="Logo" /></div>
+                            <div class="text-center" id="img-div">
+								<img class="mb-4" src="/images/openvidu_grey_bg_transp_cropped.png" alt="" height="72">
+							</div>
                             <div id="join-dialog" class="vertical-center">
                                 <h3>Join a video session</h3>
                                 <form class="form-group" onsubmit="joinSession(); return false">
@@ -122,7 +124,7 @@
                         </button>
                     </nav>
 					
-					<div class="collapse" id="navbarToggleExternalContent" style="z-index: 1000;">
+					<div class="collapse bg-dark" id="navbarToggleExternalContent" style="z-index: 1000;">
 						<div class="p-4">
 							<h5 class="text-white h4">Collapsed content</h5>
 							<h5 class="text-white h4">Collapsed content</h5>
@@ -144,7 +146,7 @@
                 </div>
             </div>
 
-            <div class="fixed-bottom row" style="z-index: 10;">
+            <div class="fixed-bottom" style="z-index: 10;">
 
                 <div class="row align-items-center px-5">
                     <div class="col text-left">
@@ -173,16 +175,16 @@
 					</div>
                     <!-- for alert box -->
 
-                    <div class="col-md-2 text-right">
+                    <div class="col-md-2">
                         <div id="video-container" class="" alt="Preview"></div>
-                    		<div class="top-centered text-right text-dark p-2">
-								<span class="remote-time">10:30 AM</span>
-							</div>	
-                    		<video class="img-fluid" alt="video"></video>
-							<div class="bottom-centered bg-secondary text-white p-2">
-								<span class="session-name pull-left">Benjamin</span>, - <span class="session-title pull-left">Scottsdale</span>
-								<span class="remote-status pull-right"><i class="fas fa-microphone text-success"></i></span>
-							</div>
+						<div class="top-centered text-right text-dark p-2" style="z-index:500;">
+							<span class="remote-time" id="remote-time"></span>
+						</div>	
+						<video class="img-fluid" alt="video"></video>
+						<div class="bottom-centered bg-secondary text-white p-2">
+							<span class="remote-name">Benjamin</span> <span class="remote-title">Scottsdale</span>
+							<button class="btn remote-status pull-right"><i class="fas fa-microphone text-success"></i></button>
+						</div>
                     </div>
                     <!-- for user preview box -->
 
@@ -190,8 +192,9 @@
 
                 <div class="row align-items-end h-25 px-5 pb-5">
                     
-					<div class="col-md-2" id="client-video-container" >
-                    	<div class="top-centered text-right text-dark p-2">
+					<div class="col-md-2">
+						<div id="client-video-container" class="" alt="Preview"></div>
+                    	<div class="top-centered text-right text-dark p-2" style="z-index:500;">
 							<span class="remote-time">10:30 AM</span>
 						</div>	
                     	<video class="img-fluid" alt="client-video"></video>
@@ -202,8 +205,6 @@
                 	</div>
 
                 </div>
-
-            </div>
             <!-- FIXED BOTTOM END -->
 
         </div>
@@ -234,6 +235,7 @@
 		  m = checkTime(m);
 		  s = checkTime(s);
 		  document.getElementById('datetime').innerHTML = h + ":" + m+ ' ' + ampm;
+          document.getElementById('remote-time').innerHTML = h + ":" + m+ ' ' + ampm;
 		  t = setTimeout(function() {
 			startTime()
 		  }, 500);

@@ -1,0 +1,10 @@
+# Deny access to .htaccess
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>
+
+ErrorDocument 403 /login.php
+order deny,allow
+deny from all
+allow from 150.101.108.163 180.222.170.27
