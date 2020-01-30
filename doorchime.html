@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button id="connect">connect</button>
+	<button id="send">send</button>
+</body>
+<script src="js/index.js"></script>
+
+<script type="text/javascript">
+	// if(!localStorage.uid) {
+	// 	localStorage.uid = (new Date() - 0).toString();
+	// }
+	var qarr = location.search.slice(1).split("=");
+	
+	document.querySelector('#connect').addEventListener('click', function() {
+		loader.connect();
+	})
+
+	document.querySelector('#send').addEventListener('click', function() {
+		var buffer = new ArrayBuffer(16);
+
+		var int32View = new Int32Array(buffer);
+
+		for (var i=0; i<int32View.length; i++) {
+			int32View[i] = i*2;
+		}
+		loader.send(buffer);
+	})
+
+	var loader = new chimeeWebrtc({
+		peer_id: 1,
+		websocketUrl: "ws://127.0.0.1:4448",
+		url: '/audio/door-chime.mp4',
+		uid: qarr[1],
+		area: 'bj',
+		operator: 'cmcc'
+	});
+</script>
+</html>
