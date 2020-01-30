@@ -39,8 +39,8 @@
                     <div class="modal-body">
                         <div id="join">
                             <div class="text-center" id="img-div">
-								<img class="mb-4" src="/images/openvidu_grey_bg_transp_cropped.png" alt="" height="72">
-							</div>
+                                <img class="mb-4" src="/images/openvidu_grey_bg_transp_cropped.png" alt="" height="72">
+                            </div>
                             <div id="join-dialog" class="vertical-center">
                                 <h3>Join a video session</h3>
                                 <form class="form-group" onsubmit="joinSession(); return false">
@@ -76,18 +76,18 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </nav>
-					
-					<div class="collapse bg-dark" id="navbarToggleExternalContent" style="z-index: 1000;">
-						<div class="p-4">
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#time-schedule">Time Schedule</button>
-							<h5 class="text-white h4">Collapsed content</h5>
-							<hr>
-							<h5 class="text-white h4">Collapsed content</h5>
-							<h5 class="text-white h4">Collapsed content</h5>
-							<h5 class="text-white h4">Collapsed content</h5>
-							<h5 class="text-white h4">Collapsed content</h5>
-						</div>
-					</div>
+
+                    <div class="collapse bg-dark" id="navbarToggleExternalContent" style="z-index: 1000;">
+                        <div class="p-4">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#time-schedule">Time Schedule</button>
+                            <h5 class="text-white h4">Collapsed content</h5>
+                            <hr>
+                            <h5 class="text-white h4">Collapsed content</h5>
+                            <h5 class="text-white h4">Collapsed content</h5>
+                            <h5 class="text-white h4">Collapsed content</h5>
+                            <h5 class="text-white h4">Collapsed content</h5>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4 text-center"></div>
 
@@ -102,20 +102,25 @@
             <div class="fixed-bottom" style="z-index: 10;">
 
                 <div class="row align-items-center px-5">
+
+                    <!-- Whiteboard Button -->
                     <div class="col text-left">
                         <button type="button" class="btn btn-primary rounded-circle" id="virtual-whiteboard" value="Virtual Whiteboard" data-backdrop="false" data-toggle="modal" data-target=".virtual-whiteboard-modal-xl">
                             <i class="fas fa-pencil-alt fa-2x py-2 m-1"></i>
                         </button>
                     </div>
 
+                    <!--  -->
                     <div class="col text-center"></div>
+                    <!--  -->
                     <div class="col text-right"></div>
                 </div>
 
                 <div class="row align-items-center px-5">
 
-                    <div class="col text-left">
-                        <button type="button" class="btn btn-success rounded-circle" id="mute-audio" onclick="muteAudio()" value="mute-audio" data-toggle="tooltip" data-placement="right" data-html="true" title="<div class='alert alert-success' role='alert'> <ul><li>1. Your audio is now active & un-muted for 10 minutes,</li><li>2. To toggle mute your microphone touch the microphone button,</li><li>3. To hangup your audio touch the red hangup button</li></ul></div>">
+                    <!-- Mute and Hangup Buttons -->
+                    <div class="col-md-2 text-left">
+                        <button type="button" class="btn btn-success rounded-circle" id="mute-audio" onclick="muteAudio()" value="mute-audio" onmouseover="$('#mute-audio-alert').addClass('in');; return false;" onmouseout="$('#mute-audio-alert').removeClass('in');; return false;">
                             <i id="change-icons" class="fas fa-microphone fa-9x px-4 m-3"></i>
                         </button>
                         <button type="button" class="btn btn-danger rounded-circle" id="buttonLeaveSession" onmouseup="leaveSession()" value="Leave session" style="margin-bottom: -8rem!important; margin-left: -3rem!important;">
@@ -123,196 +128,212 @@
                         </button>
                     </div>
 
-                    <div class="col text-center">
-						<span></span>
-					</div>
-                    <!-- for alert box -->
+                    <!-- Alert box -->
+                    <div class="col text-left">
+                        <div class='alert alert-success alert-block fade' role='alert' id="mute-audio-alert">
+                            <ul class="list-unstyled h4">
+                                <li>1. Your audio is now active & un-muted for 10 minutes,</li>
+                                <li>2. To toggle mute your microphone touch the microphone button,</li>
+                                <li>3. To hangup your audio touch the red hangup button</li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <!--  -->
+                    <div class="col">
+                    </div>
+
+                    <!-- Local Video Feed -->
                     <div class="col-md-2">
                         <div id="video-container" class="" alt="Preview"></div>
-						<div class="top-centered text-right text-dark p-2" style="z-index:500;">
-							<span class="remote-time" id="remote-time"></span>
-						</div>	
-						<video class="img-fluid" alt="video"></video>
-						<div class="bottom-centered bg-secondary text-white p-2">
-							<span class="remote-name">Benjamin</span> <span class="remote-title">Scottsdale</span>
-							<button class="btn remote-status pull-right"><i class="fas fa-microphone text-success"></i></button>
-						</div>
+                        <div class="top-centered text-right text-dark p-2" style="z-index:500;">
+                            <span class="remote-time" id="remote-time"></span>
+                        </div>
+                        <video class="img-fluid" alt="video"></video>
+                        <div class="bottom-centered bg-secondary text-white p-2">
+                            <span class="remote-name">Benjamin</span> <span class="remote-title">Scottsdale</span>
+                            <button class="btn remote-status pull-right"><i class="fas fa-microphone text-success"></i></button>
+                        </div>
                     </div>
-                    <!-- for user preview box -->
 
                 </div>
 
                 <div class="row align-items-end h-25 px-5 pb-5">
-                    
-					<div class="col-md-2">
-						<div id="client-video-container" class="" alt="Preview"></div>
-                    	<div class="top-centered text-right text-dark p-2" style="z-index:500;">
-							<span class="remote-time">10:30 AM</span>
-						</div>	
-                    	<video class="img-fluid" alt="client-video"></video>
-						<div class="bottom-centered bg-secondary text-white p-2">
-							<span class="remote-name">Benjamin</span> <span class="remote-title">Scottsdale</span>
-                        	<button class="btn remote-status pull-right"><i class="fas fa-microphone text-success"></i></button>
-						</div>
-                	</div>
+
+                    <!-- Remote Video Feeds -->
+                    <div class="col-md-2">
+                        <div id="client-video-container" class="" alt="Preview"></div>
+                        <div class="top-centered text-right text-dark p-2" style="z-index:500;">
+                            <span class="remote-time">10:30 AM</span>
+                        </div>
+                        <video class="img-fluid" alt="client-video"></video>
+                        <div class="bottom-centered bg-secondary text-white p-2">
+                            <span class="remote-name">Benjamin</span> <span class="remote-title">Scottsdale</span>
+                            <button class="btn remote-status pull-right"><i class="fas fa-microphone text-success"></i></button>
+                        </div>
+                    </div>
 
                 </div>
-            <!-- FIXED BOTTOM END -->
+                <!-- FIXED BOTTOM END -->
 
-        </div>
-        
-        <!-- Always-on Time Schedule -->
-			<div class="modal fade" id="time-schedule" tabindex="-1" role="dialog" aria-labelledby="time-schedule" aria-hidden="true" style="z-index:2000;">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">Always-on Time Schedule</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<div class="row">
-								<div class="col-md-6">
-                                	
-                                	<div class="row">
-										<div class="col">Start:</div>
-										<div class="col">
-											<input class="form-control" id="start-time" value="07:00" data-default="07:00">
-										</div>
-									</div>
-									<div class="row">
-										<div class="col">Stop:</div>
-										<div class="col">
-											<input class="form-control" id="end-time" value="17:00" data-default="17:00">
-										</div>
-									</div>
-                                
-								</div>
-								
-                            	<div class="col-md-6">
-									<div class="row">
-										<div class="col">Monday:</div>
-										<div class="col">
-										<label class="switch">
-											<input type="checkbox" checked autocomplete="off">
-											<span class="slider round"></span>
-										</label>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col">Tuesday:</div>
-										<div class="col">
-										<label class="switch">
-											<input type="checkbox" checked autocomplete="off">
-											<span class="slider round"></span>
-										</label>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col">Wednesday:</div>
-										<div class="col">
-										<label class="switch">
-											<input type="checkbox" checked autocomplete="off">
-											<span class="slider round"></span>
-										</label>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col">Thursday:</div>
-										<div class="col">
-										<label class="switch">
-											<input type="checkbox" checked autocomplete="off">
-											<span class="slider round"></span>
-										</label>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col">Friday:</div>
-										<div class="col">
-										<label class="switch">
-											<input type="checkbox" checked autocomplete="off">
-											<span class="slider round"></span>
-										</label>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col">Saturday:</div>
-										<div class="col">
-										<label class="switch">
-											<input type="checkbox">
-											<span class="slider round"></span>
-										</label>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col">Sunday:</div>
-										<div class="col">
-										<label class="switch">
-											<input type="checkbox">
-											<span class="slider round"></span>
-										</label>
-										</div>
-									</div>
-                                
-								</div>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Save changes</button>
-						</div>
-					</div>
-				</div>
-			</div>
-        
-        
-        	<!-- WHITEBOARD -->
-        	<div class="whiteboard modal fade virtual-whiteboard-modal-xl" tabindex="-1" role="dialog" aria-labelledby="virtual-whiteboard" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered modal-x1">
-					<div class="modal-content">
-						<div class="canvas-container" id="canvas-container">
-							<div class="btn-group whiteboard-button">
-								<button type="button" class="btn rounded-circle btn-transparent text-white pl-2" onclick="wb1.clean();"><i class="fas fa-eraser fa-2x"></i></button>
-							
-								<button type="button" class="btn rounded-circle btn-dark m-1 p-4" onclick="wb1.options.strokeStyle='black'"></button>
-								<button type="button" class="btn rounded-circle btn-danger m-1 p-4" onclick="wb1.options.strokeStyle='red'"></button>
-								<button type="button" class="btn rounded-circle btn-success m-1 p-4" onclick="wb1.options.strokeStyle='green'"></button>
-								<button type="button" class="btn rounded-circle btn-primary m-1 p-4" onclick="wb1.options.strokeStyle='blue'"></button>
-								<button type="button" class="btn rounded-circle btn-warning m-1 p-4" onclick="wb1.options.strokeStyle='orange'"></button>
-								<!--
+            </div>
+
+            <!-- Always-on Time Schedule -->
+            <div class="modal fade" id="time-schedule" tabindex="-1" role="dialog" aria-labelledby="time-schedule" aria-hidden="true" style="z-index:2000;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Always-on Time Schedule</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <div class="row">
+                                        <div class="col">Start:</div>
+                                        <div class="col">
+                                            <input class="form-control" id="start-time" value="07:00" data-default="07:00">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">Stop:</div>
+                                        <div class="col">
+                                            <input class="form-control" id="end-time" value="17:00" data-default="17:00">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col">Monday:</div>
+                                        <div class="col">
+                                            <label class="switch">
+                                                <input type="checkbox" checked autocomplete="off">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">Tuesday:</div>
+                                        <div class="col">
+                                            <label class="switch">
+                                                <input type="checkbox" checked autocomplete="off">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">Wednesday:</div>
+                                        <div class="col">
+                                            <label class="switch">
+                                                <input type="checkbox" checked autocomplete="off">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">Thursday:</div>
+                                        <div class="col">
+                                            <label class="switch">
+                                                <input type="checkbox" checked autocomplete="off">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">Friday:</div>
+                                        <div class="col">
+                                            <label class="switch">
+                                                <input type="checkbox" checked autocomplete="off">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">Saturday:</div>
+                                        <div class="col">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">Sunday:</div>
+                                        <div class="col">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WHITEBOARD -->
+            <div class="whiteboard modal fade virtual-whiteboard-modal-xl" tabindex="-1" role="dialog" aria-labelledby="virtual-whiteboard" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-x1">
+                    <div class="modal-content">
+                        <div class="canvas-container" id="canvas-container">
+                            <div class="btn-group whiteboard-button">
+                                <button type="button" class="btn rounded-circle btn-transparent text-white pl-2" onclick="wb1.clean();"><i class="fas fa-eraser fa-2x"></i></button>
+
+                                <button type="button" class="btn rounded-circle btn-dark m-1 p-4" onclick="wb1.options.strokeStyle='black'"></button>
+                                <button type="button" class="btn rounded-circle btn-danger m-1 p-4" onclick="wb1.options.strokeStyle='red'"></button>
+                                <button type="button" class="btn rounded-circle btn-success m-1 p-4" onclick="wb1.options.strokeStyle='green'"></button>
+                                <button type="button" class="btn rounded-circle btn-primary m-1 p-4" onclick="wb1.options.strokeStyle='blue'"></button>
+                                <button type="button" class="btn rounded-circle btn-warning m-1 p-4" onclick="wb1.options.strokeStyle='orange'"></button>
+                                <!--
 								<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=1">10</button>
 								<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=3">20</button>
 								<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=5">30</button>
 								-->
-                            	<a id="download" download="screenshot-<?php echo date(dmY); ?>.png">
-									<button type="button" class="btn rounded-circle btn-transparent text-dark pl-2" onClick="download()"><i class="fas fa-download fa-2x"></i></button>
-								</a>
-                            
-							</div>
-							<div class="">
-							<!-- Note that the id of our canvas is #myCanvas -->
-							<canvas class="transparent-canvas" id="canvas-1" width="900" height="400">Sorry, your browser doesn't support the &lt;canvas&gt; element.</canvas>
-							</div>
-                        	<div >
-                            	<button type="button" class="btn btn-secondary pb-4 pl-4 pt-5 pr-5 whiteboard-open">
-									<span aria-hidden="true"><i class="fas fa-check fa-2x"></i></span>
-								</button>
-								<button type="button" class="bottom-align-text btn btn-secondary pb-4 pr-4 pt-5 pl-5 whiteboard-close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true"><i class="fas fa-times fa-2x"></i></span>
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+                                <a id="download" download="screenshot-<?php echo date(dmY); ?>.png">
+                                    <button type="button" class="btn rounded-circle btn-transparent text-dark pl-2" onClick="download()"><i class="fas fa-download fa-2x"></i></button>
+                                </a>
 
-        
-    </div>
+                            </div>
+                            <div class="">
+                                <!-- Note that the id of our canvas is #myCanvas -->
+                                <canvas class="transparent-canvas" id="canvas-1" width="900" height="400">Sorry, your browser doesn't support the &lt;canvas&gt; element.</canvas>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-secondary pb-4 pl-4 pt-5 pr-5 whiteboard-open">
+                                    <span aria-hidden="true"><i class="fas fa-check fa-2x"></i></span>
+                                </button>
+                                <button type="button" class="bottom-align-text btn btn-secondary pb-4 pr-4 pt-5 pl-5 whiteboard-close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"><i class="fas fa-times fa-2x"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+	</div>
     
     <script type="text/javascript">
-		function download() {
+		// Tooltips Initialization
+		$(function () {
+  			$('[data-toggle="tooltip"]').tooltip()
+		})
+    
+    	function download() {
 			var download = document.getElementById("download");
 			var image = document.getElementById("canvas-1").toDataURL("image/png")
 				.replace("image/png", "image/octet-stream");

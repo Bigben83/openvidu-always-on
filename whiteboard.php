@@ -24,7 +24,7 @@
 	
 		<div class="row">
         	<div class="col text-center font-weight-bold">
-				<h1 class="">Whiteboard demo</h1>
+				<h1 class="">Whiteboard</h1>
 				<button type="button" class="btn btn-primary rounded-circle" data-backdrop="false" data-toggle="modal" data-target=".virtual-whiteboard-modal-xl"><i class="fas fa-pencil-alt fa-2x py-2 m-1"></i></button>
 			</div>
     	</div>
@@ -67,11 +67,8 @@
 					</div>
 				</div>
 			</div>
-
-		<div class="row">
-        	<div class="col">
-			</div>
-    	</div>
+	</div>
+</body>	
 
 	<script type="text/javascript">
 		function download() {
@@ -104,5 +101,4 @@
 		}
 	</script>
 
-</body>
 </html>
