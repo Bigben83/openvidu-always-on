@@ -273,7 +273,7 @@
 				<div class="modal-dialog modal-dialog-centered modal-x1">
 					<div class="modal-content">
 						<div class="canvas-container" id="canvas-container">
-							<div class="btn-group" id="button">
+							<div class="btn-group whiteboard-button">
 								<button type="button" class="btn rounded-circle btn-transparent text-white pl-2" onclick="wb1.clean();"><i class="fas fa-eraser fa-2x"></i></button>
 							
 								<button type="button" class="btn rounded-circle btn-dark m-1 p-4" onclick="wb1.options.strokeStyle='black'"></button>
@@ -296,6 +296,9 @@
 							<canvas class="transparent-canvas" id="canvas-1" width="900" height="400">Sorry, your browser doesn't support the &lt;canvas&gt; element.</canvas>
 							</div>
                         	<div >
+                            	<button type="button" class="btn btn-secondary pb-4 pl-4 pt-5 pr-5 whiteboard-open">
+									<span aria-hidden="true"><i class="fas fa-check fa-2x"></i></span>
+								</button>
 								<button type="button" class="bottom-align-text btn btn-secondary pb-4 pr-4 pt-5 pl-5 whiteboard-close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true"><i class="fas fa-times fa-2x"></i></span>
 								</button>

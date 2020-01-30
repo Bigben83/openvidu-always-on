@@ -20,7 +20,7 @@
 	
 </head>
 <body>
-	<div class="container-fluid bg-dark h-100 background-image text-white">
+	<div class="container-fluid bg-dark h-100 bg-image text-white">
 	
 		<div class="row">
         	<div class="col text-center font-weight-bold">
@@ -29,40 +29,44 @@
 			</div>
     	</div>
 		
-		<div class="whiteboard modal fade virtual-whiteboard-modal-xl" tabindex="-1" role="dialog" aria-labelledby="virtual-whiteboard" aria-hidden="false">
-			<div class="modal-dialog modal-dialog-centered modal-x1">
-				<div class="modal-content">
-					<div class="canvas-container" id="canvas-container">
-						<div class="btn-group" id="button">
-							<button type="button" class="btn rounded-circle btn-transparent text-white pl-2" onclick="wb1.clean();"><i class="fas fa-eraser fa-2x"></i></button>
+		<!-- WHITEBOARD -->
+        	<div class="whiteboard modal fade virtual-whiteboard-modal-xl" tabindex="-1" role="dialog" aria-labelledby="virtual-whiteboard" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered modal-x1">
+					<div class="modal-content">
 						
-							<button type="button" class="btn rounded-circle btn-dark m-1 p-4" onclick="wb1.options.strokeStyle='black'"></button>
-							<button type="button" class="btn rounded-circle btn-danger m-1 p-4" onclick="wb1.options.strokeStyle='red'"></button>
-							<button type="button" class="btn rounded-circle btn-success m-1 p-4" onclick="wb1.options.strokeStyle='green'"></button>
-							<button type="button" class="btn rounded-circle btn-primary m-1 p-4" onclick="wb1.options.strokeStyle='blue'"></button>
-							<button type="button" class="btn rounded-circle btn-warning m-1 p-4" onclick="wb1.options.strokeStyle='orange'"></button>
-							<!--
-							<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=1">10</button>
-							<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=3">20</button>
-							<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=5">30</button>
-							-->
-                        	<a id="download" download="screenshot-<?php echo date(d_m_Y); ?>.png">
-								<button type="button" class="btn rounded-circle btn-transparent text-dark pl-2" onClick="download()"><i class="fas fa-download fa-2x"></i></button>
-							</a>
+                    	<div class="canvas-container" id="canvas-container">
+							<div class="btn-group whiteboard-button">
+								<button type="button" class="btn rounded-circle btn-transparent text-white pl-2" onclick="wb1.clean();"><i class="fas fa-eraser fa-2x"></i></button>
+							
+								<button type="button" class="btn rounded-circle btn-dark m-1 p-4" onclick="wb1.options.strokeStyle='black'"></button>
+								<button type="button" class="btn rounded-circle btn-danger m-1 p-4" onclick="wb1.options.strokeStyle='red'"></button>
+								<button type="button" class="btn rounded-circle btn-success m-1 p-4" onclick="wb1.options.strokeStyle='green'"></button>
+								<button type="button" class="btn rounded-circle btn-primary m-1 p-4" onclick="wb1.options.strokeStyle='blue'"></button>
+								<button type="button" class="btn rounded-circle btn-warning m-1 p-4" onclick="wb1.options.strokeStyle='orange'"></button>
+								<!--
+								<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=1">10</button>
+								<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=3">20</button>
+								<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=5">30</button>
+								-->
+                            	<a id="download" download="screenshot-<?php echo date(dmY); ?>.png">
+									<button type="button" class="btn rounded-circle btn-transparent text-dark pl-2" onClick="download()"><i class="fas fa-download fa-2x"></i></button>
+								</a>
+                            
+							</div>
+							<div class="">
+							<!-- Note that the id of our canvas is #myCanvas -->
+							<canvas class="transparent-canvas" id="canvas-1" width="900" height="400">Sorry, your browser doesn't support the &lt;canvas&gt; element.</canvas>
+							</div>
+                        	<div >
+								<button type="button" class="bottom-align-text btn btn-secondary pb-4 pr-4 pt-5 pl-5 whiteboard-close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true"><i class="fas fa-times fa-2x"></i></span>
+								</button>
+							</div>
 						</div>
-						<div class="">
-						<!-- Note that the id of our canvas is #myCanvas -->
-						<canvas class="transparent-canvas" id="canvas-1" width="900" height="400">Sorry, your browser doesn't support the &lt;canvas&gt; element.</canvas>
-						</div>
-						<div >
-							<button type="button" class="btn btn-secondary pb-4 pr-4 pt-5 pl-5 whiteboard-close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true"><i class="fas fa-times fa-2x"></i></span>
-							</button>
-						</div>
+                    
 					</div>
 				</div>
 			</div>
-		</div>
 
 		<div class="row">
         	<div class="col">
