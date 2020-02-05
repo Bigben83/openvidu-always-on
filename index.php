@@ -62,6 +62,21 @@
                 </div>
             </div>
         </div>
+    
+    	<!-- SleepModal -->
+    	<div class="modal bg-dark" id="sleepModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="sleepModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" style="width: 1080px;max-width: 100%;">
+                <div class="modal-content bg-dark">
+                    <div class="modal-body text-center">
+                        <div id="col">
+                            <h2>This feed is in overnight mode for another </h2>
+							<h1 id="time-remaining">X hours XX minutes,</h1>  <!-- Time remaining goes here -->
+							<h2>tap the screen to wake up for XX minutes</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div id="session" style="display: none;">
 
@@ -145,15 +160,7 @@
 
                     <!-- Local Video Feed -->
                     <div class="col-md-2">
-                        <div id="video-container" class="" alt="Preview"></div>
-                        <div class="top-centered text-right text-dark p-2" style="z-index:500;">
-                            <span class="remote-time" id="remote-time"></span>
-                        </div>
-                        <video class="img-fluid" alt="video"></video>
-                        <div class="bottom-centered bg-secondary text-white p-2">
-                            <span class="remote-name">Benjamin</span> <span class="remote-title">Scottsdale</span>
-                            <button class="btn remote-status pull-right"><i class="fas fa-microphone text-success"></i></button>
-                        </div>
+                        <div id="video-container"></div>
                     </div>
 
                 </div>
@@ -162,15 +169,8 @@
 
                     <!-- Remote Video Feeds -->
                     <div class="col-md-2">
-                        <div id="client-video-container" class="" alt="Preview"></div>
-                        <div class="top-centered text-right text-dark p-2" style="z-index:500;">
-                            <span class="remote-time">10:30 AM</span>
-                        </div>
-                        <video class="img-fluid" alt="client-video"></video>
-                        <div class="bottom-centered bg-secondary text-white p-2">
-                            <span class="remote-name">Benjamin</span> <span class="remote-title">Scottsdale</span>
-                            <button class="btn remote-status pull-right"><i class="fas fa-microphone text-success"></i></button>
-                        </div>
+                        <div id="video-container" class="" alt="Preview"></div>
+                        
                     </div>
 
                 </div>
@@ -301,7 +301,7 @@
 								<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=3">20</button>
 								<button type="button" class="btn rounded-circle btn-default m-1" onclick="wb1.options.lineWidth=5">30</button>
 								-->
-                                <a id="download" download="screenshot-<?php echo date(dmY); ?>.png">
+                                <a id="download" download="screenshot-<?php echo date(dmY); ?>.jpg">
                                     <button type="button" class="btn rounded-circle btn-transparent text-dark pl-2" onClick="download()"><i class="fas fa-download fa-2x"></i></button>
                                 </a>
 
@@ -335,10 +335,10 @@
     
     	function download() {
 			var download = document.getElementById("download");
-			var image = document.getElementById("canvas-1").toDataURL("image/png")
-				.replace("image/png", "image/octet-stream");
+			var image = document.getElementById("canvas-1").toDataURL("image/jpg")
+				.replace("image/jpg", "image/octet-stream");
 			download.setAttribute("href", image);
-			//download.setAttribute("download","archive.png");
+			//download.setAttribute("download","archive.jpg");
 		}
     
     	'use strict';
@@ -403,7 +403,7 @@
 		  m = checkTime(m);
 		  s = checkTime(s);
 		  document.getElementById('datetime').innerHTML = h + ":" + m+ ' ' + ampm;
-          document.getElementById('remote-time').innerHTML = h + ":" + m+ ' ' + ampm;
+          //document.getElementById('remote-time').innerHTML = h + ":" + m+ ' ' + ampm;
 		  t = setTimeout(function() {
 			startTime()
 		  }, 500);

@@ -64,15 +64,17 @@ function joinSession() {
 				$('#joinModal').modal('hide');
 				document.getElementById('session').style.display = 'block';
 
-				// --- 6) Get your own camera stream with the desired properties ---
-
+				
+        		
+        		// --- 6) Get your own camera stream with the desired properties ---
+				                
 				publisher = OV.initPublisher('video-container', {
 					audioSource: undefined, 	// The source of audio. If undefined default microphone
 					videoSource: undefined, 	// The source of video. If undefined default webcam
-					publishAudio: true,  		// Whether you want to start publishing with your audio unmuted or not
+					publishAudio: false,  		// Whether you want to start publishing with your audio unmuted or not
 					publishVideo: true,  		// Whether you want to start publishing with your video enabled or not
 					resolution: '1920x1080',  	// The resolution of your video '640x480'
-					frameRate: 30,				// The frame rate of your video
+					frameRate: 25,				// The frame rate of your video
 					insertMode: 'APPEND',		// How the video is inserted in the target element 'video-container'	
 					mirror: true       			// Whether to mirror your local video or not
 				});
@@ -129,6 +131,21 @@ function generateParticipantInfo() {
 	document.getElementById("userName").value = "Participant " + Math.floor(Math.random() * 100);
 }
 
+/*
+<!-- Remote Video Feeds -->
+<div class="col-md-2">
+	<div id="client-video-container" class="" alt="Preview"></div>
+	<div class="top-centered text-right text-dark p-2" style="z-index:500;">
+		<span class="remote-time">10:30 AM</span>
+	</div>
+	<video class="img-fluid" alt="client-video"></video>
+	<div class="bottom-centered bg-secondary text-white p-2">
+		<span class="remote-name">Benjamin</span> <span class="remote-title">Scottsdale</span>
+		<span class="btn remote-status pull-right"><i class="fas fa-microphone text-success"></i></span>
+	</div>
+</div>
+*/
+
 function appendUserData(videoElement, connection) {
 	var userData;
 	var nodeId;
@@ -139,14 +156,69 @@ function appendUserData(videoElement, connection) {
 		userData = JSON.parse(connection.data).clientData;
 		nodeId = connection.connectionId;
 	}
-	var dataNode = document.createElement('div');
-	dataNode.className = "data-node";
-	dataNode.id = "data-" + nodeId;
-	//document.getElementById('remote-name').innerText = (userName) ;
-	//document.getElementById('remote-title').innerText = (userName) ;
-	videoElement.parentNode.insertBefore(dataNode, videoElement.nextSibling);
+	
+	// ADD ID to video container
+	document.getElementById('video-container').setAttribute("class", "video-container");
+	document.getElementById('video-container').setAttribute("id", "data-" + nodeId);
+	
+	// 1.
+	// Create Div for Time
+	var timeDiv = document.createElement('div');
+	timeDiv.className = "top-centered text-right text-dark p-2 remote-time";
+	timeDiv.style = "z-index:500;"
+	timeDiv.id = "time-" + nodeId;
+	timeDiv.innerHTML = '10:30 AM';
+	//timeDiv.appendChild("data-" + nodeId);
+	
+	// 2.
+	// Div for Name and Mute Status
+	var dataDiv = document.createElement('div');
+	dataDiv.className = "bottom-centered bg-secondary text-white p-2";
+	dataDiv.id = "remoteData-" + nodeId;
+
+	// 3.
+	// Video Div
+	videoElement.parentNode.insertBefore(dataDiv, videoElement.nextSibling);
+	videoElement.className = "img-fluid";
+	videoElement.id = "data-" + nodeId;
+	
+
+	// 4.
+	// Create Span for Name
+	var nameNode = document.createElement('span');
+	document.getElementById("remoteData-" + nodeId).appendChild(nameNode);
+	nameNode.className = "remote-name";
+	nameNode.id = "name-" + nodeId;
+	nameNode.innerText = userData + " ";
+
+	// 5.
+	// Create Span for Location
+	var locationNode = document.createElement('span');
+	document.getElementById("remoteData-" + nodeId).appendChild(locationNode);
+	locationNode.className = "remote-location";
+	locationNode.id = "location-" + nodeId;
+	locationNode.innerText = 'Scottsdale ' ;
+
+	// 6.
+	// Create Span for Mute
+	var locationNode = document.createElement('span');
+	document.getElementById("remoteData-" + nodeId).appendChild(locationNode);
+	locationNode.className = "remote-status pull-right";
+	locationNode.id = "status-" + nodeId;
+	//locationNode.innerText = '' ;
+	
+	// 6.
+	// Create Span for Mute
+	var locationNode = document.createElement('i');
+	document.getElementById("status-" + nodeId).appendChild(locationNode);
+	locationNode.className = "fas fa-microphone text-success";
+	locationNode.id = "statusI-" + nodeId;
+	locationNode.innerText = '' ;
+
+
 	addClickListener(videoElement, userData);
 }
+
 
 function removeUserData(connection) {
 	var dataNode = document.getElementById("data-" + connection.connectionId);

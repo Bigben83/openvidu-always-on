@@ -8,19 +8,25 @@ For teams across remote locations that work closely together. Place the always-o
 
 Walk up to the screen, select the remote feed you want to interact with, knock on the screen to alert them you would like to talk.
 
+### SCREENSHOT
+![SCREENSHOT](https://github.com/Bigben83/openvidu-always-on/blob/master/images/Screenshot.png)
+
 ### Features
 * Responsive to fit any large size screen
 * Mute / Unmute Button
 * Full Screen Video Feed
+* Download Whiteboard
 
 #### To be implemented
-* Whiteboard Link  (this will be semitransparent so you can still see the video feed behind it.)
-* Unmute/Mute remote parties
+* ~~Whiteboard Link~~  (this will be semitransparent so you can still see the video feed behind it.)
+* Setup Whiteboard Share via session.  (This is a canvas that needs sharing)
+* Unmute/Mute remote parties  [https://openvidu.discourse.group/t/always-on-video-wall/100/2?u=benjamin_harris]
 * Automatically mute after 5min if no audio or (face detection?)
 * Bell feature to alert remote party you need to speak, e.g. tap or click on image to knock
 * Automatically start and end feeds at office hours e.g. turn on at 7am and turn off at 5pm. 
 ** Could be user defined.
 * Secure behind login or use ip-restriction
+* Afterhours logoff/logon
 
 #### Could be handy
 * Screen Share
@@ -31,7 +37,7 @@ Walk up to the screen, select the remote feed you want to interact with, knock o
 * Microsoft Windows 10
 * Logitech Meetup 4K Video Conference Cam
 
-#### Whiteboard feature to be implemented could be
+#### Whiteboard feature implemented was inspired by
 https://github.com/OpenBoard-org/OpenBoard
 
 #### Openvidu is based on the openvidu-inscure-js
