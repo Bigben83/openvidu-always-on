@@ -6,54 +6,65 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
-
 	<!-- Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
 
+	<!-- Clock Picker Scripts -->
 	<script src="js/jquery-clockpicker.min.js"></script>
 	<link rel="stylesheet" href="css/jquery-clockpicker.min.css">
 
+	<!-- Openvidu Scripts -->
 	<script src="js/openvidu-browser-2.11.0.js"></script>
 	<script src="js/app.js"></script>
 
+	<!-- Additional Scripting -->
 	<link rel="stylesheet" href="css/style.css" />
+
+	<!-- Whiteboard Script -->
 	<script src="js/whiteboard.js"></script>
 
-	<style>
-
-	</style>
 </head>
 
 <body>
 
 	<div id="main-container" > <!-- class="container-fluid bg-dark h-100" -->
 
-		<div class="modal fade" id="joinModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="joinModalLabel" aria-hidden="true">
+		<div class="modal fade" id="joinModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="joinModalLabel" aria-hidden="true" data-keyboard="false">
 			<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
 				<div class="modal-content">
 
 					<div class="modal-body">
 						<div id="join">
-							<div class="text-center" id="img-div">
-								<img class="mb-4" src="/images/openvidu_grey_bg_transp_cropped.png" alt="" height="72">
-							</div>
+                        	<div class="row justify-content-center">
+                        		<div class="col-8 align-self-center">
+									<img class="img-fluid" src="/images/openvidu_grey_bg_transp_cropped.png" >
+                        		</div>
+                            </div>
 							<div id="join-dialog" class="vertical-center">
-								<h3>Join a video session</h3>
-								<form class="form-group" onsubmit="joinSession(); return false">
-									<p>
-										<label>Participant</label>
+								<h3 class="text-center font-weight-bold">Always on video</h3>
+								<form class="needs-validation" onsubmit="joinSession(); return false" novalidate>
+									<div class="form-group">
+										<label class="mb-0" for="userName">Your Name<span class="text-danger">*</span></label>
 										<input class="form-control" type="text" id="userName" required>
-									</p>
-									<p>
-										<label>Session</label>
+									</div>
+                                	<div class="form-group">
+                                    <label class="mb-0" for="userEmail">Your Email</label>
+										<input class="form-control" type="email" id="userEmail">
+									</div>
+									<div class="form-group">
+										<label class="mb-0" for="sessionId">Session<span class="text-danger">*</span></label>
 										<input class="form-control" type="text" id="sessionId" required>
-									</p>
+									</div>
+                                	<div class="form-group">
+										<label class="mb-0" for="location">Location</label>
+										<input class="form-control" type="text" id="location" value="Scottsdale">
+									</div>
 									<p class="text-center">
-										<input class="btn btn-lg btn-danger" type="submit" name="commit" value="Join!">
+										<input class="btn btn-lg btn-danger btn-block font-weight-bold" type="submit" name="commit" value="Join Session">
 									</p>
 								</form>
 							</div>
@@ -84,9 +95,9 @@
 				<video autoplay class="" style="transform: rotateY(180deg);"></video>
 			</div>
 
-			<div class="fixed-top row align-items-start justify-content-end px-5">
-				<div class="col-sm-4 text-left">
-					<nav class="navbar navbar-light bg-transparent border-0 justify-content-start">
+			<div class="fixed-top row align-items-start justify-content-end px-4 pt-2">
+				<div class="col-sm-4 text-left pl-0">
+					<nav class="navbar navbar-light bg-transparent border-0 justify-content-start pl-0">
 						<button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
@@ -114,9 +125,9 @@
 				</div>
 			</div>
 
-			<div class="fixed-bottom align-items-start justify-content-end px-5" style="z-index: 10;">
+			<div class="fixed-bottom align-items-start justify-content-end px-4" style="z-index: 10;">
 
-				<div class="row px-5">
+				<div class="row px-4">
 
 					<!-- Whiteboard Button -->
 					<div class="align-items-start text-left">
@@ -141,13 +152,13 @@
 
 					<!-- Mute and Hangup Buttons -->
 					<div class="col-sm-2 col-md-2 col-lg-1 col-xl-1 text-left pl-0">
-						<button type="button" class="btn btn-success rounded-circle" id="mute-audio" onclick="muteAudio()" value="mute-audio" onmouseover="$('#mute-audio-alert').addClass('in'); return false;" onmouseout="$('#mute-audio-alert').removeClass('in');; return false;">
-							<i id="change-icons" class="fas fa-microphone fa-9x px-4 m-3"></i>
+						<button type="button" class="btn btn-danger rounded-circle" id="mute-audio" onclick="muteAudio()" value="mute-audio" > <!-- onmouseover="$('#mute-audio-alert').addClass('in');; return false;" onmouseout="$('#mute-audio-alert').removeClass('in');; return false;" -->
+							<i id="change-icons" class="fas fa-microphone-slash fa-6x py-3 m-3"></i>
 						</button>
 					</div>
-					<div class="col-sm-1 col-md-1 text-left " style="margin-left: -3rem!important;">
+					<div class="col-sm-1 col-md-1 text-left ml-n3">
 						<button type="button" class="btn btn-danger rounded-circle" id="buttonLeaveSession" onmouseup="leaveSession()" value="Leave session">
-							<i class="fas fa-phone-slash fa-2x py-3 m-1"></i>
+							<i class="fas fa-phone-slash fa-2x py-2 m-1"></i>
 						</button>
 					</div>
 
@@ -315,7 +326,7 @@
 							</div>
 							<div class="">
 								<!-- Note that the id of our canvas is #myCanvas -->
-								<canvas class="transparent-canvas" id="canvas-1" width="900" height="400">Sorry, your browser doesn't support the &lt;canvas&gt; element.</canvas>
+								<canvas class="transparent-canvas" id="whiteboard" width="900" height="400">Sorry, your browser doesn't support the &lt;canvas&gt; element.</canvas>
 							</div>
 							<div>
 								<button type="button" class="btn btn-secondary pb-4 pl-4 pt-5 pr-5 whiteboard-open">
@@ -342,7 +353,7 @@
 
 		function download() {
 			var download = document.getElementById("download");
-			var image = document.getElementById("canvas-1").toDataURL("image/jpg")
+			var image = document.getElementById("whiteboard").toDataURL("image/jpg")
 				.replace("image/jpg", "image/octet-stream");
 			download.setAttribute("href", image);
 			//download.setAttribute("download","archive.jpg");
@@ -350,7 +361,7 @@
 
 		'use strict';
 
-		var wb1 = new Whiteboard('canvas-1', wb1_bufferHandler, {
+		var wb1 = new Whiteboard('whiteboard', wb1_bufferHandler, {
 			globalAlpha: 0.75
 		});
 
@@ -374,13 +385,11 @@
 
 
 	<script type="text/javascript">
-		$(window).on('load', function() {
+
+    	$(window).on('load', function() {
 			$('#joinModal').modal('show');
 		});
-	</script>
 
-
-	<script type="text/javascript">
 		var input = $('#start-time');
 		input.clockpicker({
 			autoclose: true
@@ -390,9 +399,7 @@
 		input.clockpicker({
 			autoclose: true
 		});
-	</script>
 
-	<script type="text/javascript">
 		function checkTime(i) {
 			if (i < 10) {
 				i = "0" + i;

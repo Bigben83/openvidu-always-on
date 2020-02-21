@@ -2,7 +2,7 @@ var OV; // OpenVidu object to initialize a session
 var session; // Session object where the user will connect
 var publisher; // Publisher object which the user will publish
 var sessionId; // Unique identifier of the session
-var audioEnabled = true; // True if the audio track of publisher is active
+var audioEnabled = false; // True if the audio track of publisher is active
 var videoEnabled = true; // True if the video track of publisher is active
 var numOfVideos = 0; // Keeps track of the number of videos that are being shown
 var VideoSource;
@@ -28,6 +28,7 @@ function joinSession() {
 		var videoDevices = devices.filter(device => device.kind === 'videoinput');
     	if (videoDevices && videoDevices.length > 1) {
         	var VideoSource = videoDevices[0].deviceId;
+        	console.log('1st Video Device: ', videoDevices[0].deviceId);
         }
 	});
 
@@ -270,6 +271,10 @@ function appendUserData(videoElement, connection) {
 	addClickListener(videoElement, userData);
 }
 
+/* ********** Whiteboard Canvas Share with participatants ********** */
+
+/* ********** END WHITEBOARD ********** */
+
 
 function removeUserData(connection) {
 	var dataNode = document.getElementById("data-" + connection.connectionId);
@@ -311,13 +316,13 @@ function muteAudio() {
 	if (!audioEnabled) {
 		$('#mute-audio').removeClass('btn-success');
 		$('#mute-audio').addClass('btn-danger');
-		$('#change-icons').removeClass('fas fa-microphone fa-9x px-4 m-3');
-		$('#change-icons').addClass('fas fa-microphone-slash fa-7x py-4 m-3');
+		$('#change-icons').removeClass('fas fa-microphone fa-8x px-3 m-3');
+		$('#change-icons').addClass('fas fa-microphone-slash fa-6x py-3 m-3');
 	} else {
 		$('#mute-audio').addClass('btn-success');
 		$('#mute-audio').removeClass('btn-danger');
-		$('#change-icons').removeClass('fas fa-microphone-slash fa-7x py-4 m-3');
-		$('#change-icons').addClass('fas fa-microphone fa-9x px-4 m-3');
+		$('#change-icons').removeClass('fas fa-microphone-slash fa-6x py-3 m-3');
+		$('#change-icons').addClass('fas fa-microphone fa-8x px-3 m-3');
 		//$('#change-icons').toggleClass('fa-microphone-slash ');
 	}
 
