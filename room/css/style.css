@@ -1,0 +1,248 @@
+@font-face {
+	font-family: 'Eurostile';
+	src: url('/fonts/EurostileBold.woff2') format('woff2'), url('/fonts/EurostileBold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Eurostile';
+	src: url('/fonts/EurostileRegular.woff2') format('woff2'), url('/fonts/EurostileRegular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html,
+body {
+	height: 100%;
+	/*width: 100%;*/
+	overflow: hidden;
+}
+body {
+	font-family: 'Eurostile', arial;
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+#main-container {
+	padding-bottom: 80px;
+	padding-right: 0px;
+    padding-left: 0px;
+}
+.background-image {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+.bg-image {
+	background: url(/images/background.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	
+}
+
+div#session {
+    height: 100%;
+    position: relative;
+}
+
+#main-video {
+    flex: 1;
+    display: flex;
+    min-height: 200px;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+	margin: 0px;
+    padding: 0px;
+}
+video {
+	width: 100%;
+	height: auto;
+	min-width: 33%;
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.video-container {
+    /* width is set as 100% here. any width can be specified as per requirement */
+    width: 100%;
+    padding-top: 56.25%;
+    /* height: 0px; */
+    position: relative;
+	overflow: hidden;
+}
+
+.video-container .video {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* Create Round Video Previews  http://jsbin.com/canicaco/2/edit?html,css,output */
+.round-video { 
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	position: relative;
+	top: 0;
+	left: 125px;
+	overflow: hidden;
+}
+.round-video video {
+	width: 500px;
+	height: 500px;
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	/* opacity: 0.5 */
+}
+
+
+
+.bottom-centered {
+	position: inherit;
+	/* bottom: 10px; */
+	left: 0;
+}
+.top-centered {
+	position: inherit;
+	top: 30px;
+	left: 0;
+}
+.navbar-toggler {
+	font-size: 3.25rem;
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+/* FOR CANVAS WHITEBOARD */
+.whiteboard .transparent-canvas {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.whiteboard canvas {
+	width: 100%;
+	height: 100%;
+}
+.whiteboard .canvas-container{
+	position: relative;
+	z-index: 600;
+	height: 100%;
+	width: 100%;
+}
+.whiteboard #canvas-1 {
+	position: relative;
+	z-index: 700;
+}
+.whiteboard-button {
+	position:absolute;
+	left:0.5%;
+	top:1%;
+	z-index: 800;
+	width: 1%;
+	display: block;
+
+	
+}
+.whiteboard .modal-dialog {
+	max-width: 95%;
+	width: 95%;
+	max-height: 90%;
+	height: 90%;
+	margin: 10px auto;
+}
+.whiteboard .modal-content {
+	background: none;
+	border-radius: 0px;
+	border: none;
+	width:  100%;
+	height: 100%;
+}
+
+.whiteboard-close {
+	z-index: 900; 
+	border-top-left-radius: 100%!important;
+	border-radius: 0px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+.whiteboard-open {
+	z-index: 900; 
+	border-top-right-radius: 100%!important;
+	border-radius: 0px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
