@@ -230,7 +230,7 @@
 										<div class="col">Monday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox" checked autocomplete="off">
+												<input type="checkbox" checked autocomplete="off" onclick="dayCheckbox(this, monday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -239,7 +239,7 @@
 										<div class="col">Tuesday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox" checked autocomplete="off">
+												<input type="checkbox" checked autocomplete="off" onclick="dayCheckbox(this, tuesday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -248,7 +248,7 @@
 										<div class="col">Wednesday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox" checked autocomplete="off">
+												<input type="checkbox" checked autocomplete="off" onclick="dayCheckbox(this, wednesday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -257,7 +257,7 @@
 										<div class="col">Thursday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox" checked autocomplete="off">
+												<input type="checkbox" checked autocomplete="off" onclick="dayCheckbox(this, thursday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -266,7 +266,7 @@
 										<div class="col">Friday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox" checked autocomplete="off">
+												<input type="checkbox" checked autocomplete="off" onclick="dayCheckbox(this, friday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -275,7 +275,7 @@
 										<div class="col">Saturday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox">
+												<input type="checkbox"  onclick="dayCheckbox(this, saturday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -284,7 +284,7 @@
 										<div class="col">Sunday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox">
+												<input type="checkbox"  onclick="dayCheckbox(this, sunday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -314,10 +314,12 @@
 						<div class="modal-body">
 							<div class="row">
 								<div class="col-md-6">
+                                	<h3>Privacy Timer</h3>
 
 								</div>
 
 								<div class="col-md-6">
+                                	<h3>Privacy Timer</h3>
 
 								</div>
 							</div>
