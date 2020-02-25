@@ -22,10 +22,10 @@ Walk up to the screen, select the remote feed you want to interact with, knock o
 * Setup Whiteboard Share via session.  (This is a canvas that needs sharing)
 * Unmute/Mute remote parties  [https://openvidu.discourse.group/t/always-on-video-wall/100/2?u=benjamin_harris]
 * Automatically mute after 5min if no audio or (face detection?)
-** https://openvidu.io/docs/advanced-features/speech-detection/
+  * https://openvidu.io/docs/advanced-features/speech-detection/
 * Bell feature to alert remote party you need to speak, e.g. tap or click on image to knock
 * Automatically start and end feeds at office hours e.g. turn on at 7am and turn off at 5pm. 
-** Could be user defined.
+  * Could be user defined.
 * Secure behind login or use ip-restriction
 * Afterhours logoff/logon
 
