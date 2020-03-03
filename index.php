@@ -9,13 +9,13 @@
 	<!-- Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
 
 	<!-- Clock Picker Scripts -->
 	<script src="js/jquery-clockpicker.min.js"></script>
-	<link rel="stylesheet" href="css/jquery-clockpicker.min.css">
+	<link rel="stylesheet" href="css/jquery-clockpicker.min.css" />
 
 	<!-- Openvidu Scripts -->
 	<script src="js/openvidu-browser-2.11.0.js"></script>
@@ -92,26 +92,42 @@
 		<div id="session" style="display: none;">
 
 			<div id="main-video" class="row no-margin">
-				<video autoplay class="" style="transform: rotateY(180deg);"></video>
+				<video autoplay class="" ></video>  <!-- style="transform: rotateY(180deg);" -->
 			</div>
 
 			<div class="fixed-top row align-items-start justify-content-end px-4 pt-2">
-				<div class="col-sm-4 text-left pl-0">
-					<nav class="navbar navbar-light bg-transparent border-0 justify-content-start pl-0">
-						<button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-					</nav>
+			
+				<div class="col-sm-4 text-left pl-0 dropdown">
+					
+					<button class="btn btn-link text-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+						<i class="fas fa-ellipsis-h fa-5x"></i>
+					</button>
+					
 
-					<div class="collapse bg-dark" id="navbarToggleExternalContent" style="z-index: 1000;">
-						<div class="p-4">
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#time-schedule">Time Schedule</button>
-							<h5 class="text-white h4">Collapsed content</h5>
+					<div class="bg-dark dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index: 1000;">
+						<div class="p-4 ">
+                        	<h4 class="text-light">Share Meeting URL</h4>
+                        	<input type="text" class="form-control text-danger text-right" id="copy-input">
+                        	<button class="btn btn-dark btn-block" type="button" id="copy-button" data-toggle="tooltip" data-placement="button" title="Copy to Clipboard">Copy to Clipboard</button>
+                        	<hr>
+                        	<h4 class="text-light">Clear Screen</h4>
+                        	<button type="button" class="btn btn-warning rounded-circle" id="buttonLeaveSession" onclick="toggleFunction()"><i class="fas fa-eye-slash fa-2x py-2 m-1"></i></button>
 							<hr>
-							<h5 class="text-white h4">Collapsed content</h5>
-							<h5 class="text-white h4">Collapsed content</h5>
-							<h5 class="text-white h4">Collapsed content</h5>
-							<h5 class="text-white h4">Collapsed content</h5>
+                        	<h4 class="text-light">Settings</h4>
+							<button type="button" class="btn btn-primary rounded-circle" data-toggle="modal" data-target="#time-schedule"><i class="far fa-clock fa-2x py-2 px-1 m-1"></i></button>
+							<button type="button" class="btn btn-secondary rounded-circle" data-toggle="modal" data-target="#user-settings"><i class="fas fa-user-cog fa-2x py-2 m-1"></i></button>
+							<hr>
+                        	<h4 class="text-light">Camera Controls</h4>
+							<button type="button" class="btn btn-success rounded-circle" id="mute-video" onmouseup="muteVideo()" value="Mute Video"><i id="video-icons" class="fas fa-video fa-2x py-2 m-1"></i></button>
+                        	<button type="button" class="btn btn-warning rounded-circle" id="switch-camera" onclick="toggleCamera()" value="Switch Camera"><i class="fas fa-camera fa-2x py-2 m-1"></i></button>
+                        	<hr>
+                        	<h4 class="text-light">Whiteboard</h4>
+                        	<button type="button" class="btn btn-primary rounded-circle" id="virtual-whiteboard" value="Virtual Whiteboard" data-backdrop="false" data-toggle="modal" data-target=".virtual-whiteboard-modal-xl"><i class="fas fa-pencil-alt fa-2x py-2 m-1"></i></button>
+                        	<button type="button" class="btn btn-secondary rounded-circle" data-toggle="modal" data-target="#whiteboard-settings"><i class="fas fa-cogs fa-2x py-2 m-1"></i></button>
+                        	<hr>
+                        	<h4 class="text-light">Hangup / Logout</h4>
+                        	<button type="button" class="btn btn-danger rounded-circle" id="buttonLeaveSession" onmouseup="leaveRoom()" value="Leave room"><i class="fas fa-phone-slash fa-2x py-2 m-1"></i></button>
+                        	<button type="button" class="btn btn-danger rounded-circle" data-toggle="modal" data-target="#logout"><i class="fas fa-sign-out-alt fa-2x py-2 px-1 m-1"></i></button>
 						</div>
 					</div>
 				</div>
@@ -122,20 +138,17 @@
 					<h3 id="session-name" class="my-0"></h3>
 					<h1 id="datetime" class="mt-0"></h1>
 					<h5 id="audio-status" class="mb-0"></h5>
+					<button type="button" class="btn text-white" id="door-bell" onclick="doorbell()" value="Door Bell" >
+    					<i id="ringDB" class="fas fa-bell fa-4x"></i>
+					</button>
 				</div>
 			</div>
 
 			<div class="fixed-bottom align-items-start justify-content-end px-4" style="z-index: 10;">
 
-				<div class="row px-4">
+				<div class="row px-4 toggle">
 
 					<!-- Whiteboard Button -->
-					<div class="align-items-start text-left">
-						<button type="button" class="btn btn-warning rounded-circle" id="switch-camera" onclick="toggleCamera()">
-							<i class="fas fa-camera fa-2x py-2 m-1"></i>
-						</button>
-					</div>
-
 					<div class="text-left pl-2">
 						<button type="button" class="btn btn-primary rounded-circle" id="virtual-whiteboard" value="Virtual Whiteboard" data-backdrop="false" data-toggle="modal" data-target=".virtual-whiteboard-modal-xl">
 							<i class="fas fa-pencil-alt fa-2x py-2 m-1"></i>
@@ -148,7 +161,7 @@
 					<div class="col-sm col-md text-right"></div>
 				</div>
 
-				<div class="row align-items-end px-2">
+				<div class="row align-items-end px-2 toggle">
 
 					<!-- Mute and Hangup Buttons -->
 					<div class="col-sm-2 col-md-2 col-lg-1 col-xl-1 text-left pl-0">
@@ -183,7 +196,7 @@
 
 				</div>
 
-				<div class="row align-items-end h-25 p-3">
+				<div class="row align-items-end h-25 p-3 toggle">
 
 					<!-- Remote Video Feeds -->
 					<div class="col-sm-2">
@@ -230,7 +243,7 @@
 										<div class="col">Monday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox" checked autocomplete="off">
+												<input type="checkbox" checked autocomplete="off" onclick="dayCheckbox(this, monday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -239,7 +252,7 @@
 										<div class="col">Tuesday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox" checked autocomplete="off">
+												<input type="checkbox" checked autocomplete="off" onclick="dayCheckbox(this, tuesday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -248,7 +261,7 @@
 										<div class="col">Wednesday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox" checked autocomplete="off">
+												<input type="checkbox" checked autocomplete="off" onclick="dayCheckbox(this, wednesday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -257,7 +270,7 @@
 										<div class="col">Thursday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox" checked autocomplete="off">
+												<input type="checkbox" checked autocomplete="off" onclick="dayCheckbox(this, thursday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -266,7 +279,7 @@
 										<div class="col">Friday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox" checked autocomplete="off">
+												<input type="checkbox" checked autocomplete="off" onclick="dayCheckbox(this, friday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -275,7 +288,7 @@
 										<div class="col">Saturday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox">
+												<input type="checkbox"  onclick="dayCheckbox(this, saturday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
@@ -284,11 +297,71 @@
 										<div class="col">Sunday:</div>
 										<div class="col">
 											<label class="switch">
-												<input type="checkbox">
+												<input type="checkbox"  onclick="dayCheckbox(this, sunday);">
 												<span class="slider round"></span>
 											</label>
 										</div>
 									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+        
+        	<!-- USER SETTINGS -->
+        	<div class="modal fade" id="user-settings" tabindex="-1" role="dialog" aria-labelledby="user-settings" aria-hidden="true" style="z-index:2000;">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">User Settings</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-6">
+                                	<h3>Privacy Timer</h3>
+
+								</div>
+
+								<div class="col-md-6">
+                                	<h3>Privacy Timer</h3>
+
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+        
+        	<!-- WHITEBOARD SETTINGS -->
+        	<div class="modal fade" id="whiteboard-settings" tabindex="-1" role="dialog" aria-labelledby="whiteboard-settings" aria-hidden="true" style="z-index:2000;">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Whiteboard Settings</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-6">
+
+								</div>
+
+								<div class="col-md-6">
 
 								</div>
 							</div>
@@ -346,7 +419,12 @@
 	</div>
 
 	<script type="text/javascript">
-		// Tooltips Initialization
+		// Clear screen of all Icons
+		function toggleFunction(){
+			$(".toggle").slideToggle();
+		}
+    
+    	// Tooltips Initialization
 		$(function() {
 			$('[data-toggle="tooltip"]').tooltip()
 		})

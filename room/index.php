@@ -9,13 +9,13 @@
 	<!-- Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE="  crossorigin="anonymous"/>
 
 	<!-- Clock Picker Scripts -->
 	<script src="js/jquery-clockpicker.min.js"></script>
-	<link rel="stylesheet" href="css/jquery-clockpicker.min.css">
+	<link rel="stylesheet" href="css/jquery-clockpicker.min.css" />
 
 	<!-- Openvidu Scripts -->
 	<script src="js/openvidu-browser-2.11.0.js"></script>
@@ -129,6 +129,9 @@
 					<h3 id="session-name" class="my-0"></h3>
 					<h1 id="datetime" class="mt-0"></h1>
 					<h5 id="audio-status" class="mb-0"></h5>
+                	<button type="button" class="btn text-white" id="door-bell" onclick="doorbell()" value="Door Bell" >
+    					<i id="ringDB" class="fas fa-bell fa-4x"></i>
+					</button>
 				</div>
 			</div>
 

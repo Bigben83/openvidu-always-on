@@ -268,6 +268,24 @@ function initMainVideo(videoElement, userData) {
 
 /* AUXILIARY MEHTODS */
 
+function waitTime(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
+
+function autoMute() {
+	session.on('publisherStartSpeaking', (event) => {
+		console.log('Publisher ' + event.connection.connectionId + ' start speaking');
+    	setTimeout(function () {
+        	muteAudio();
+        	console.log('Muting Audio automatically after 5min');
+    	}, 50000);
+	});
+}
+
 function muteAudio() {
 	audioEnabled = !audioEnabled;
 	publisher.publishAudio(audioEnabled);
@@ -300,6 +318,24 @@ function muteVideo() {
     	$('#video-icons').removeClass('fas fa-video-slash fa-2x py-2 m-1');
 		$('#video-icons').addClass('fas fa-video fa-2x py-2 m-1');
 	}
+}
+
+// Door bell for call all participants
+function activateBell() {
+	$('#ringDB').addClass('text-danger');
+}
+function deactivateBell() {
+}
+function doorbell() {
+	setTimeout(function () {
+    	$('#ringDB').removeClass('text-danger');
+    	$('#ringDB').addClass('faa-ring animated text-success');	
+    }, 2000);
+	activateBell();
+	setTimeout(function () {
+        deactivateBell();
+    	$('#ringDB').removeClass('faa-ring animated text-success');
+    }, 5000);	
 }
 
 //function randomString() {
