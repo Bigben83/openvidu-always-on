@@ -46,4 +46,3 @@ https://github.com/OpenBoard-org/OpenBoard
 #### Openvidu is based on the openvidu-inscure-js
 https://github.com/OpenVidu/openvidu
 Follow the instructions to setup a openvidu server.
-
